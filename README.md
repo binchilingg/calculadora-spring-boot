@@ -1,50 +1,46 @@
-
 # Calculadora Spring Boot
 
-API REST desenvolvida em Java com Spring Boot para realizar operações matemáticas.
+Projeto da Atividade 07: calculadora REST com operações e testes automatizados.
 
-## Funcionalidades
+## Requisitos
+- Java 17 ou superior
+- Maven 3.8+ (ou usar o Maven integrado da IDE)
 
-- Adição
-- Subtração
-- Multiplicação
-- Divisão
-- Exponenciação
-- Validação de operações e tratamento de situações inválidas
-- Testes automatizados
+## Executar os testes
+Na pasta do projeto, execute:
 
-## Tecnologias
-
-- Java 17+
-- Spring Boot
-- Maven
-- JUnit
-
-## Como executar
-
-1. Clone este repositório.
-2. Entre na pasta do projeto.
-3. Execute a aplicação usando o Maven Wrapper:
-
-No Windows:
-
-```powershell
-.\mvnw.cmd spring-boot:run
+```bash
+mvn test
 ```
 
-## Testes
-
-Para executar os testes automatizados:
-
-```powershell
-.\mvnw.cmd test
+## Executar a aplicação
+```bash
+mvn spring-boot:run
 ```
 
-## Objetivo acadêmico
+## Endpoint
+`GET http://localhost:8080/api/calculadora/calcular`
 
-Projeto desenvolvido para fins de aprendizagem
-e prática de desenvolvimento de APIs REST com Java.
+Parâmetros obrigatórios: `numero1`, `numero2` e `operacao`.
 
-## Autor
+Exemplo:
+`http://localhost:8080/api/calculadora/calcular?numero1=10&numero2=5&operacao=adicao`
 
-Estudante de Engenharia da Computação.
+Operações aceitas:
+- `adicao` ou `+`
+- `subtracao` ou `-`
+- `multiplicacao`, `*` ou `x`
+- `divisao` ou `/`
+- `exponenciacao` ou `^`
+
+A resposta JSON contém os números de entrada, a operação, o resultado e a situação.
+
+## TDD
+Para aplicar TDD em uma evolução do projeto:
+1. Escreva primeiro um teste para uma nova regra.
+2. Execute `mvn test` e confirme que o teste falha.
+3. Implemente o comportamento mínimo para passar.
+4. Execute os testes novamente.
+5. Refatore mantendo todos os testes passando.
+
+Os testes incluídos cobrem operações matemáticas, entradas inválidas e divisão por zero.
